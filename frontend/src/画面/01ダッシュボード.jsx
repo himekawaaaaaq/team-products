@@ -1,8 +1,8 @@
 function Dashboard() {
-  const thanksCount = 32
-  const smileCount = 80
-  const stress = 35
-  const highTouchCount = 16
+  const thanksCount     = 10  //感謝
+  const smileCount      = 20  //笑顔
+  const stress          = 30  //ストレス
+  const highTouchCount  = 40  //ハイタッチ
 
   const chartData = [
     { time: '09:00', stress: 35, smile: 45 },
@@ -13,7 +13,7 @@ function Dashboard() {
     { time: '19:00', stress: 40, smile: 45 },
   ]
 
-  // グラフの線を作る
+  //☆グラフの線を作る
   const makePoints = (key) => {
     const width = 600
     const height = 150
@@ -31,10 +31,11 @@ function Dashboard() {
       .join(' ')
   }
 
+  //画面
   return (
     <div className="dashboard">
 
-      {/* 上の4つのカード */}
+      {/*上の四項目*/}
       <section className="stats">
 
         <div className="stat-card">
@@ -64,7 +65,7 @@ function Dashboard() {
           </div>
 
           <p className="green-text">
-            平均比120% 活性化
+            平均比100% 活性化
           </p>
         </div>
 
@@ -131,7 +132,7 @@ function Dashboard() {
               viewBox="0 0 600 150"
               preserveAspectRatio="none"
             >
-              {/* ストレス度 */}
+              {/* ストレス度の線 */}
               <polyline
                 points={makePoints('stress')}
                 fill="none"
@@ -141,8 +142,8 @@ function Dashboard() {
                 strokeLinejoin="round"
               />
 
-              {/* 笑顔回数 */}
-              <polyline
+              {/* 笑顔回数の線 */}
+              <polyline //<-複数の線をつなぐ
                 points={makePoints('smile')}
                 fill="none"
                 stroke="#3498db"
@@ -177,7 +178,7 @@ function Dashboard() {
         <div className="activity-item">
 
           <span className="time">
-            15:10
+            11:00
           </span>
 
           <span className="badge red-badge">
@@ -185,8 +186,7 @@ function Dashboard() {
           </span>
 
           <p>
-            ストレス度の上昇を感知 →
-            やさしい声で発話しました
+            ストレス度の上昇を感知 → やさしい声で発話しました
           </p>
 
         </div>
