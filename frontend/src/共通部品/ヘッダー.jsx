@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-function Header() {
+function Header({ currentPage }) {
   const [now, setNow] = useState(new Date())
   const [isOnline, setIsOnline] = useState(true)
 
@@ -20,19 +20,30 @@ function Header() {
   })
 
   const timeText = now.toLocaleTimeString('ja-JP', {
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-  })
+  hour: '2-digit',
+  minute: '2-digit',
+})
+
+  const pageInfo = {
+    dashboard: {
+      title: 'ダッシュボード',
+      description: 'チームの空気感とDesk PALの稼働状況を確認します',
+    },
+
+    character: {
+      title: 'キャラクター・音声設定',
+      description: 'Desk PALの音声をカスタマイズします',
+    },
+  }
+
+  const page = pageInfo[currentPage] || pageInfo.dashboard
 
   return (
     <header className="header">
 
       <div className="header-title">
-        <h1>ダッシュボード</h1>
-        <p>
-          チームの空気感とDesk PALの稼働状況を確認します
-        </p>
+        <h1>{page.title}</h1>
+        <p>{page.description}</p>
       </div>
 
       <div className="header-right">

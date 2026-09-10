@@ -1,28 +1,37 @@
-function Sidebar() {
+function Sidebar({ currentPage, setCurrentPage }) {
   return (
     <aside className="sidebar">
 
       <div className="logo-area">
-
-        <div className="logo-icon">
-          ☺
-        </div>
+        <div className="logo-icon">☺</div>
 
         <div>
           <h2>Desk PAL</h2>
           <p>PC COMPANION</p>
         </div>
-
       </div>
-
 
       <nav className="menu">
 
-        <button className="menu-item active">
+        <button
+          className={
+            currentPage === 'dashboard'
+              ? 'menu-item active'
+              : 'menu-item'
+          }
+          onClick={() => setCurrentPage('dashboard')}
+        >
           ▦ ダッシュボード
         </button>
 
-        <button className="menu-item">
+        <button
+          className={
+            currentPage === 'character'
+              ? 'menu-item active'
+              : 'menu-item'
+          }
+          onClick={() => setCurrentPage('character')}
+        >
           ♙ キャラクター・音声
         </button>
 
@@ -33,9 +42,8 @@ function Sidebar() {
         <button className="menu-item">
           ⚙ システム・環境連携
         </button>
-
+   
       </nav>
-
 
       <div className="device-card">
 
@@ -44,13 +52,8 @@ function Sidebar() {
           Desk PAL #0023
         </div>
 
-        <p>
-          バッテリー 84%（給電中）
-        </p>
-
-        <p>
-          Wi-Fi DESKPAL-HOME-5G
-        </p>
+        <p>バッテリー 84%（給電中）</p>
+        <p>Wi-Fi DESKPAL-HOME-5G</p>
 
       </div>
 
